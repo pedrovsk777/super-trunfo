@@ -1,0 +1,60 @@
+import random
+
+# Lista de cartas
+cartas = [
+    {
+        "nome": "Dragão",
+        "força": 90,
+        "velocidade": 60,
+        "magia": 85
+    },
+    {
+        "nome": "Fênix",
+        "força": 75,
+        "velocidade": 80,
+        "magia": 95
+    },
+    {
+        "nome": "Minotauro",
+        "força": 85,
+        "velocidade": 50,
+        "magia": 40
+    },
+    {
+        "nome": "Unicórnio",
+        "força": 60,
+        "velocidade": 70,
+        "magia": 100
+    },
+    {
+        "nome": "Grifo",
+        "força": 80,
+        "velocidade": 85,
+        "magia": 70
+    }
+]
+
+# Sorteia cartas
+carta_jogador = random.choice(cartas)
+carta_computador = random.choice([c for c in cartas if c != carta_jogador])
+
+print("Sua carta:")
+print(f"Nome: {carta_jogador['nome']}")
+print(f"Força: {carta_jogador['força']}")
+print(f"Velocidade: {carta_jogador['velocidade']}")
+print(f"Magia: {carta_jogador['magia']}")
+
+# Jogador escolhe atributo
+escolha = input("\nEscolha um atributo para competir (força, velocidade, magia): ").lower()
+
+# Verifica quem venceu
+print("\nCarta do computador:")
+print(f"Nome: {carta_computador['nome']}")
+print(f"{escolha.capitalize()}: {carta_computador[escolha]}")
+
+if carta_jogador[escolha] > carta_computador[escolha]:
+    print("\n🎉 Você venceu!")
+elif carta_jogador[escolha] < carta_computador[escolha]:
+    print("\n💻 O computador venceu.")
+else:
+    print("\n⚔️ Empate!")
